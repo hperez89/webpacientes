@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.menuicon{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.menuicon_sesion{
+    margin-left: 30px;
+}
