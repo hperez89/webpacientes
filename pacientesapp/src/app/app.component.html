@@ -481,10 +481,27 @@
 * * * * * * * * * * End of Placeholder * * * * * * * * * * * 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <mat-toolbar>
-  <button mat-icon-button class="btnicomenu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="btnicomenu">
       <mat-icon>menu</mat-icon>
+
+      <mat-menu #menu="matMenu" class="menuMovil">
+        <button mat-menu-item routerLink="/Agendar" class="btnMenuMovil">
+            <span>Agendar</span>
+        </button>
+        <button mat-menu-item routerLink="/Empresas" class="btnMenuMovil">
+            <span>Empresas</span>
+        </button>
+        <button mat-menu-item routerLink="/Contacto" class="btnMenuMovil">
+            <span>Contacto</span>
+        </button>
+       <!--<div *ngIf="loginEnable">
+            <button mat-menu-item routerLink="/administrar" class="btnMenuMovil">
+                <span>Mis Parcelas</span>
+            </button>
+        </div>-->
+      </mat-menu>
   </button>
-  <span>Pacientes App</span>
+  <span routerLink="/">Pacientes App</span>
   <span class="example-spacer"></span>
   <!--<button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
@@ -492,15 +509,13 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
   </button>-->
-  <a routerLink="/Agendar">
-      <button mat-raised-button class="menuicon">
-          Agendar
-      </button>
-  </a>
-  <button mat-raised-button class="menuicon">
+  <button mat-raised-button class="menuicon" routerLink="/Agendar">
+      Agendar
+  </button>
+  <button mat-raised-button class="menuicon" routerLink="/Empresas">
       Empresas
   </button>
-  <button mat-raised-button class="menuicon">
+  <button mat-raised-button class="menuicon" routerLink="/Contacto">
       Contacto
   </button>
 

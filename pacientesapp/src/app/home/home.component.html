@@ -1,1 +1,52 @@
-<h1>INICIO</h1>
+<!--<div class="bodycentral">
+    <mat-card appearance="outlined" class="card-container">
+        <mat-card-header>
+            <mat-card-title>Inicio</mat-card-title>
+            <mat-card-subtitle>subtitulo</mat-card-subtitle>
+            
+        </mat-card-header>
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+</div>-->
+
+
+
+<div class="bodycentral">
+    <div class="dsc-carousel" [ngStyle]="{'min-height':finalHeight}">
+        <div class="dsc-carousel__btns">
+            <mat-icon fontIcon="arrow_back_ios" (click)="setBack()"></mat-icon>
+            <mat-icon fontIcon="arrow_forward_ios" (click)="setNext()"></mat-icon>
+        </div>
+        <div class="dsc-carousel__container">
+            <ng-container *ngFor="let section of items">
+                <div class="dsc-carousel__container-item" [ngStyle]="{'background-image': 'url(' + section.image + ')', 'margin-left':section.marginLeft+'%'}">
+                    <h1>{{section.title.first}} <span> {{section.title.second}}</span></h1>
+                    <p>{{section.subtitle}}</p>
+                </div>
+            </ng-container>
+        </div>
+        <div class="dsc-carousel__steps">
+             <div class="dsc-carousel__steps-step dsc-carousel__steps-step-{{currentPosition === item.id ? 'active':''}}" 
+             *ngFor="let item of items" (click)="setCurrentPosition(item.id)">
+    
+             </div>
+        </div>
+    </div>
+
+    
+</div>
+<div class="bodycentral">
+    <div class="section2">
+        <div class="section2-1">
+            <h1>Como Agendar <mat-icon fontIcon="calendar_today" class="agendaricono"></mat-icon></h1>
+        </div>
+        <div class="section2-2">
+            <h1>Planes</h1>
+            <p>1. Individual presencial<br>
+                2. Individual remoto<br>
+                3. Personalizado<br></p>
+        </div>
+    </div>
+</div>

@@ -2,30 +2,64 @@
     <mat-card appearance="outlined" class="card-container">
         <mat-card-header>
             <mat-card-title>AGENDAR ATENCION</mat-card-title>
-            <mat-card-subtitle>subtitulo</mat-card-subtitle>
+            <mat-card-subtitle>Dr/a. Xxxxx Xxxxxx</mat-card-subtitle>
             
         </mat-card-header>
         <!--align="end"-->
         <mat-card-actions class="formAgenda">
-            formulario
-            <!--<button mat-button>Learn More</button>-->
-            <mat-form-field>
-                <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-                  <input matStartDate formControlName="start" placeholder="Start date">
-                  <input matEndDate formControlName="end" placeholder="End date">
-                </mat-date-range-input>
-                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-              
-                <!--@if (range.controls.start.hasError('matStartDateInvalid')) {
-                  <mat-error>Invalid start date</mat-error>
-                }
-                @if (range.controls.end.hasError('matEndDateInvalid')) {
-                  <mat-error>Invalid end date</mat-error>
-            }-->
-              </mat-form-field>
+            <div class="formAgenda2">
+              <div class="formAgenda">
+                <mat-form-field class="invisible">
+                  <input matInput type="text" [(ngModel)]="modoreserva">
+                </mat-form-field>
+    
+                <div>
+                  <button mat-flat-button class="btnreserva" [color]="modoreserva ? 'warn':'basic'" (click)="ChangeModoReserva(true)">Presencial</button>
+                  <button mat-flat-button class="btnreserva" [color]="modoreserva ? 'basic':'warn'" (click)="ChangeModoReserva(false)">Remota</button>
+                </div>
+    
+                <mat-form-field>
+                  <mat-label>Fecha:</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="fechareserva" [min]="minDate" required>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+    
+                <mat-form-field>
+                  <mat-label>Hora</mat-label>
+                  <mat-select [(ngModel)]="hourselected" name="hourselected" required>
+                    <mat-option *ngFor="let hora of horasdiponibles" [value]="hora.id">
+                      {{hora.hora}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="formAgenda">
+                datos personales:
+                <mat-form-field>
+                  <mat-label>Rut</mat-label>
+                  <input matInput type="text" [(ngModel)]="rut" (blur)="formatorut()" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Nombre</mat-label>
+                  <input matInput type="text" [(ngModel)]="nombre" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Apellido</mat-label>
+                  <input matInput type="text" [(ngModel)]="apellido" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Mail</mat-label>
+                  <input matInput type="text" [(ngModel)]="mail" required>
+                </mat-form-field>
+
+              </div>
+            </div>
+
+            <div class="btnreservar">
+              <button mat-flat-button color="primary" >Reservar</button>
+            </div>
+            
         </mat-card-actions>
     </mat-card>
 </div>

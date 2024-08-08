@@ -9,4 +9,43 @@
 .formAgenda{
     width: 100% !important;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.formAgenda2{
+    width: 100% !important;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+}
+.invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+.btnreserva{
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.btnreservar{
+    width: 100% !important;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+}
+
+@media (max-width: 900px){
+    .formAgenda{
+        margin: 10px;
+        align-items: center;
+    }
+    .card-container{
+        width: 100% !important;
+    }
+    .formAgenda2{
+        flex-direction:column;
+    }
 }
